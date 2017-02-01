@@ -1,0 +1,16 @@
+.form-group {
+    display: inline-block;
+}
+
+.radio-buttons {
+    padding-left: 15px;
+}
+
+form > .form-inline {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+a:hover {
+    cursor: pointer;
+}

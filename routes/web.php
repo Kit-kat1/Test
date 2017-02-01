@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'OrderController@index'
+]);
+
+Route::group(['prefix' => 'orders'], function () {
+    Route::get('/', ['as' => 'orders', 'uses' => 'OrderController@getOrders']);
+    Route::post('/', ['as' => 'orders.create', 'uses' => 'OrderController@create']);
+    Route::delete('/{id}', ['as' => 'orders.delete', 'uses' => 'OrderController@delete']);
+    Route::put('/{id}', ['as' => 'orders.update', 'uses' => 'OrderController@update']);
+    Route::get('/filter', ['as' => 'orders.filter', 'uses' => 'OrderController@filter']);
 });
